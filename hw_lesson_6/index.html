@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img_mini {
+            height: 300px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .img_big {
+            height: 500px;
+            border: 1px solid #000;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image {
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let mini = document.createElement("div");
+        mini.classList.add("img_mini");
+        document.body.append(mini);
+
+        let big = document.createElement("div");
+        big.classList.add("img_big");
+        document.body.append(big)
+
+        for (let i = 1; i <= 3; i++) {
+            let img = document.createElement("img");
+            img.classList.add("image");
+            img.id = "i" + i
+            img.src = "img_mini/img" + i + ".jpg";
+            mini.appendChild(img);
+
+            img.onclick = function () {
+                let x = document.getElementById("1")
+                if (x == null) {
+                    let big_img = document.createElement("img")
+                    big_img.classList.add("big_image")
+                    big_img.id = 1
+                    big_img.src = "img_big/img" + this.id[1] + ".jpg"
+                    big.appendChild(big_img)
+                } else {
+                    x.remove();
+                    big_img = document.createElement("img")
+                    big_img.classList.add("big_image")
+                    big_img.id = 1
+                    big_img.src = "img_big/img" + this.id[1] + ".jpg"
+                    big.appendChild(big_img)
+                }
+            }
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
